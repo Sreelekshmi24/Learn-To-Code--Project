@@ -1,0 +1,133 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void CtoF(float n)
+{
+    float f;
+    f = n * 9/5 + 32;
+    printf("Temperature in Farenheit: %.2f",f);
+}
+
+void FtoC(float m)
+{
+    float c;
+    c = (m - 32) * 5/9;
+    printf("Temperature in Celcius: %.2f",c); 
+}
+
+void MtoF(float p)
+{
+    float f;
+    f = 3.2808399 * p;
+    printf("Feet: %f",f);
+}
+
+void FtoM(float q)
+{
+    float m;
+    printf("Feet : ");
+    scanf("%f",&q);
+    m = q / 3.2808399;
+    printf("Meter: %f\n",m);
+}
+
+void KMto(float r)
+{
+    float Millimeter, Centimeter, Meter;
+  	Meter = r * 1000.0;
+  	Centimeter = r * 100000.0; 	
+  	Millimeter = r * 1000000.0; 	
+ 
+    printf("\n %.2f Kilometers  = %.2f Meters", r, Meter);
+    printf("\n %.2f Kilometers  = %.2f Centimeters", r, Centimeter);
+    printf("\n %.2f Kilometers  = %.2f Millimeters", r, Millimeter); 
+}
+
+void ACandDC(int c)
+ {
+    int choice; 
+    float ac=0.0,dc=0.0;
+    printf("Menu \n 1.AC to DC \n 2.DC to AC \n Enter Choice:"); 
+    scanf("%d",&choice); 
+    switch(choice) 
+    { 
+        case 1: printf("Enter AC current: "); 
+            scanf("%f",&ac);
+            dc=ac*0.636;
+            printf("AC=%f, DC=%f",ac,dc);
+            break; 
+        case 2: printf("Enter DC current: ");
+            scanf("%f",&dc);
+            ac=dc/0.636;
+            printf("AC=%f, DC=%f",ac,dc);
+            break; 
+        default:printf("Error!"); 
+            break; 
+    }
+}
+ 
+int main()
+{
+    float c,f,m,feet,km;
+    int choice,ch;
+    
+    printf("\nUnit Converions");
+    printf("\n=======================");
+    printf("\n\tMENU");
+    printf("\n=======================");
+    printf("\n 1] Convert Celcius to Farenheit");
+    printf("\n 2] Convert Farenheit to Celcius");
+    printf("\n 3] Convert Meter to Feet");
+    printf("\n 4] Convert Feet to Meter");
+    printf("\n 5] Convert Km to M/cm/mm");
+    printf("\n 6] Convert AC to DC and vice versa");
+    printf("\n 0] Exit");
+    printf("\n\n=======================\n");
+    printf("Enter your choice : ");
+    scanf("%d",&ch);
+    printf("\n-----------------------\n");
+
+    switch (ch) 
+    {
+      case 1: printf("Celcius ");
+              scanf("%f",&c);
+              CtoF(c);
+        break;
+        
+      case 2:printf("Farenheit : ");
+             scanf("%f",&f);
+             FtoC(f);
+        break;
+        
+      case 3: printf("Meter : ");
+              scanf("%f",&m);
+              MtoF(m);
+        break;
+      
+      case 4: printf("Feet : ");
+              scanf("%f",&feet);
+              FtoM(feet);
+        break;
+        
+      case 5: printf("K.M. : ");
+              scanf("%f",&km);
+              KMto(km);
+        break;
+        
+      case 6: printf("Menu \n 1.AC to DC \n 2.DC to AC \n Enter Choice:"); 
+              scanf("%d",&choice); 
+              ACandDC(choice);
+        break;
+        
+      case 7:
+        printf("Thank You.");
+        exit(0);
+        
+      default:
+        printf("Invalid input.");
+        printf("Please enter correct input.");
+    }
+
+    printf("\n\n**********************************\n");
+    return 0;
+ }
